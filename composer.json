@@ -1,0 +1,11 @@
+{
+    "name": "bsp/php-uni-projekt",
+    "autoload": {
+        "psr-4": {
+            "Bsp\\PhpUniProjekt\\": "src/"
+        }
+    },
+    "require": {
+        "box/spout": "^3.3"
+    }
+}
