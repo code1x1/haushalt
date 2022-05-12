@@ -24,6 +24,9 @@ $excel = new Bsp\PhpUnitProjekt\Excel('dateien/excel.xlsx');
         Lagerbestand
     </h1>
     <?php require_once __DIR__ . '/../src/menu.php' ?>
-    <?php $excel->printAll(); ?>
+    <?php 
+    // gibt die tabelle der spalten aus
+    $excel->printAll(); 
+    ?>
 </body>
 </html>
