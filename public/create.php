@@ -29,11 +29,13 @@ $excel = new Bsp\PhpUnitProjekt\Excel('dateien/excel.xlsx');
 </head>
 <body>
 <?php
+    // wenn eine post anfrage mit submit = Auftrag erfassen ankommt wird dieser block bearbeitet und die daten werden in die Excel Datei geschrieben
     if ($_POST['submit'] === 'Auftrag erfassen') {
         $status = $excel->addRow($_POST);
         if ($status) {
             echo $status;
         }
+        // wenn eine get anfrage mit submit = ändern ankommt wird dieser block bearbeitet und die daten in der Excel Datei werden in das formular unten geschrieben um erneut verändert zu werden
     } else if ($_GET['submit'] === 'ändern') {
         $row = $excel->getRow($_GET['goto']);
         if ($row === null) {
@@ -51,7 +53,7 @@ $excel = new Bsp\PhpUnitProjekt\Excel('dateien/excel.xlsx');
         <div>
             <div class="eingaben">
                 <label for="name">Name</label>
-                <input type="text" name="name" value="<?php echo isset($cells[0]) ? $cells[0]->getValue() : ""; ?>" />
+                <input type="text" name="name" value="<?php /* wenn $cells[0] befüllt ist gib es in dem formular aus ansonsten einfach ein leerer text genau wie in zeilen 60,64,68,72 */ echo isset($cells[0]) ? $cells[0]->getValue() : ""; ?>" />
             </div>
             <div class="eingaben">
                 <label for="wert">Wert</label>
