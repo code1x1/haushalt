@@ -21,42 +21,49 @@ class Excel {
         $this->writer = WriterEntityFactory::createWriterFromFile($filePath);
     }
 
+    // gibt alle excel spalten als html tabelle aus
     public function printAll() {
+        // der reader liest die datei aus dem pfad filePath
         $this->reader->open($this->filePath);
         echo '<table>';
+        // schleife über alle sheets der excel tabelle mit der $sheet variable
         foreach ($this->reader->getSheetIterator() as $sheet) {
+            // schleife über alle zeilen des jeweiligen sheet aus der $sheet variable
             foreach ($sheet->getRowIterator() as $rowCount => $row) {
 
+                
                 if($rowCount === 1):
-                    echo "<thead><tr>";
+                    echo "<thead><tr>"; // wenn es die erste zeile ist dann als tabellen überschrift verwenden
                 else:
-                    echo "<tbody><tr>";
+                    echo "<tbody><tr>"; // wenn es nicht die erste zeile ist dann als tabellen inhalt verwenden
                 endif;
 
+                // liest alle zellen aus der zeile $row
                 /**
                  * @var Cell[]
                  */
                 $cells = $row->getCells();
                 foreach ($cells as $cellCount => $cell) {
                     if($rowCount === 1):
-                        echo "<td>{$cell->getValue()}</td>";
+                        echo "<td>{$cell->getValue()}</td>"; // wenn es die erste zeile ist dann wird es so ausgegeben (damit man zwischen titel und normaler zeile eine unterscheidung hat und es zu beispiel anders formatieren kann)
                     else:
-                        echo "<td>{$cell->getValue()}</td>";
+                        echo "<td>{$cell->getValue()}</td>"; // wenn es nicht die erste zeile ist dann wird es so ausgegeben
                     endif;
                 }
 
                 if($rowCount === 1):
-                    echo "</tr></thead>";
+                    echo "</tr></thead>"; // selbe wie zeile 36
                 else:
-                    echo "</tr></tbody>";
+                    echo "</tr></tbody>"; // selbe wie zeile 38
                 endif;
             }
             echo '</table>';
         }
 
-        $this->reader->close();
+        $this->reader->close(); // reader schliessen damit excel datei wieder benutzt werden kann
     }
 
+    // diese methode geht über alle sheets der excel und speichert alle zeilen in $rows und gibt die zeilen zurück
     public function getRows() {
         $this->reader->open($this->filePath);
         $rows = [];
@@ -70,6 +77,7 @@ class Excel {
         return $rows;
     }
 
+    // suche nach $goto wert in der ersten spalte
     public function getRow($goto) {
         $this->reader->open($this->filePath);
         foreach ($this->reader->getSheetIterator() as $sheet) {
@@ -91,6 +99,7 @@ class Excel {
         return null;
     }
 
+    // eine spalte eintragen wenn noch nicht existiert oder updaten wenn schon existiert
     public function addRow(array $values): string {
         $row = $this->getRow($values['name']);
         if ($row === null) {
@@ -102,6 +111,7 @@ class Excel {
         }
     }
 
+    // eine spalte eintragen
     public function _addRow(array $values) {
         $this->reader->open($this->filePath);
         $this->writer = WriterEntityFactory::createWriterFromFile($this->filePath.$this->tmpName);
@@ -130,6 +140,7 @@ class Excel {
         rename($this->filePath.$this->tmpName, $this->filePath);
     }
 
+    // eine spalte updaten
     public function _updateRow(array $values) {
         $this->reader->open($this->filePath);
         $this->writer = WriterEntityFactory::createWriterFromFile($this->filePath.$this->tmpName);
