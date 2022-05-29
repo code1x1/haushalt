@@ -10,7 +10,7 @@
 </button>
 <button>
     <a href="/list.php">
-        Lagerbestand
+        Liste
     </a>
 </button>
 <button>
