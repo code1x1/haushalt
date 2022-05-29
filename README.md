@@ -23,5 +23,7 @@ Der Interpreter PHP8.1 kann über folgenden Link heruntergeladen werden
 Auf der haushalt App gibt es eine `Übersicht` Seite mit der man über das Menü in die Erstellen, Listen und Download funktion wechseln kann.
 
 Die Erstellen Seite ermöglicht es neue Einträge in der App zu erstellen und zu speichern.
+
 Die Listen Seite listet die erstellten Einträge aus der Datei unter /public/dateien/excel.xslx auf.
+
 Der Download Link startet einen Download der /public/dateien/excel.xslx 
