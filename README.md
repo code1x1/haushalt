@@ -27,3 +27,13 @@ Die Erstellen Seite ermöglicht es neue Einträge in der App zu erstellen und zu
 Die Listen Seite listet die erstellten Einträge aus der Datei unter /public/dateien/excel.xslx auf.
 
 Der Download Link startet einen Download der /public/dateien/excel.xslx 
+
+## Beispiel
+
+![Ubersicht](https://raw.githubusercontent.com/code1x1/haushalt/main/Screenshot%202022-05-31%20at%2019-13-01%20U%CC%88bersicht%20Haushaltstool.png)
+
+![Protokollierung](https://raw.githubusercontent.com/code1x1/haushalt/main/Screenshot%202022-05-31%20at%2019-13-17%20Batchprotokolierung.png)
+
+![Bestand](https://raw.githubusercontent.com/code1x1/haushalt/main/Screenshot%202022-05-31%20at%2019-13-32%20Lagerbestand.png)
+
+![Excel](https://raw.githubusercontent.com/code1x1/haushalt/main/Bildschirmfoto%202022-05-31%20um%2019.14.58.png)
