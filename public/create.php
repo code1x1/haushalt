@@ -17,7 +17,7 @@ $excel = new Bsp\PhpUnitProjekt\Excel('dateien/excel.xlsx');
     require_once __DIR__ . '/../src/header.php';
 
     ?>
-    <title>Batchprotokolierung</title>
+    <title>Eintrag anlegen</title>
     <style>
         .eingaben {
             display: inline-block;
@@ -46,7 +46,7 @@ $excel = new Bsp\PhpUnitProjekt\Excel('dateien/excel.xlsx');
     }
 ?>
     <h1>
-        Batchprotokolierung
+        Eintrag anlegen
     </h1>
     <?php require_once __DIR__ . '/../src/menu.php' ?>
     <form action="" method="post">
